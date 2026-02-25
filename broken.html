@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Bug 1: Missing viewport meta tag -->
+  <!-- Without this, mobile browsers zoom out 
+  and show desktop view -->
+  <title>Broken Mobile Layout</title>
+  <style>
+
+    /* Bug 2: Fixed pixel widths everywhere */
+    .container {
+      width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Bug 3: Navigation not mobile friendly */
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 18px;
+      white-space: nowrap;
+    }
+
+    /* Bug 4: Hero text too large on mobile */
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1;
+    }
+
+    /* Bug 5: Two column layout 
+    breaks on small screens */
+    .two-column {
+      display: flex;
+      gap: 40px;
+    }
+
+    .column {
+      width: 50%;
+    }
+
+    /* Bug 6: Image wider than screen */
+    .hero-image {
+      width: 800px;
+    }
+
+    /* Bug 7: Buttons too small to tap */
+    .cta-button {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    /* Bug 8: Text too small on mobile */
+    p {
+      font-size: 11px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+      <h1>Welcome to Our Website</h1>
+      <img class="hero-image" 
+      src="hero.jpg" alt="Hero">
+      <button class="cta-button">
+        Get Started
+      </button>
+    </div>
+
+    <div class="two-column">
+      <div class="column">
+        <h2>Our Services</h2>
+        <p>We provide top quality services 
+        for your business needs.</p>
+      </div>
+      <div class="column">
+        <h2>Why Choose Us</h2>
+        <p>Years of experience delivering 
+        results for clients worldwide.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
