@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Fix 1: Viewport meta tag added -->
+  <meta name="viewport" 
+  content="width=device-width, initial-scale=1.0">
+  <title>Fixed Mobile Layout</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    /* Fix 2: Fluid container instead of fixed */
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Fix 3: Responsive navigation */
+    nav {
+      background: #1a1a2e;
+      padding: 16px 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 4px 0;
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    /* Fix 4: Fluid hero typography */
+    .hero {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      /* clamp: min 28px, scales up, max 64px */
+      font-size: clamp(28px, 6vw, 64px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #1a1a2e;
+    }
+
+    /* Fix 6: Responsive image */
+    .hero-image {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    /* Fix 7: Touch-friendly button */
+    .cta-button {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: 16px;
+      background: #2c7be5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      min-height: 48px; /* WCAG tap target */
+      transition: background 0.2s;
+    }
+
+    .cta-button:hover {
+      background: #1a5bbf;
+    }
+
+    /* Fix 8: Readable body text */
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    /* Fix 5: Responsive two-column layout */
+    .two-column {
+      display: flex;
+      gap: 40px;
+      padding: 40px 0;
+    }
+
+    .column {
+      flex: 1;
+    }
+
+    .column h2 {
+      font-size: clamp(20px, 3vw, 28px);
+      margin-bottom: 12px;
+      color: #1a1a2e;
+    }
+
+    /* Stack columns on mobile */
+    @media (max-width: 640px) {
+      .two-column {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .column {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="hero">
+      <h1>Welcome to Our Website</h1>
+      <img class="hero-image" 
+      src="https://via.placeholder.com/800x400" 
+      alt="Hero Image">
+      <br><br>
+      <button class="cta-button">Get Started</button>
+    </div>
+
+    <div class="two-column">
+      <div class="column">
+        <h2>Our Services</h2>
+        <p>We provide top quality services 
+        for your business needs. Every solution 
+        is tailored to your goals.</p>
+      </div>
+      <div class="column">
+        <h2>Why Choose Us</h2>
+        <p>Years of experience delivering 
+        results for clients worldwide across 
+        every industry.</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
